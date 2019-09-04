@@ -61,7 +61,7 @@ class ChicoBot:
                     channel = chan
 
             msg = ''.join([i + ' ' for i in context.message.content.split(" ")[1:]])
-            msg += f"by {context.message.author.mention} in {context.message.channel.name}"
+            msg += f"\nby {context.message.author.mention} in <#{context.message.channel.id}>"
 
             if channel is None:
                 await self.discord_client.say(f"Failed to send to channel. Please try again or ping @ramsfield#7696 for assistance.")
