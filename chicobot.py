@@ -68,5 +68,16 @@ class ChicoBot:
             else:
                 await self.discord_client.send_message(channel, content=f"{msg}")
 
+        #########SAY COMMAND############
+        @self.discord_client.command(description="Allows Ramsfield to do stuff. Idk, I don't make the rules",
+                brief="Copycat",
+                aliases=[],
+                pass_context=True)
+        async def say(context):
+            if context.message.author.name != "Ramsfield":
+                await self.discord_client.say(f"You're not my real dad!")
+            else:
+                await self.discord_client.say(''.join([i+' ' for i in context.message.content.split(' ')[1:]]))
+
     def run(self):
         self.discord_client.run(self.token)
